@@ -1,0 +1,3 @@
+/home/pi/wireguard-tools/build/CMakeFiles/rebuild_cache.dir
+/home/pi/wireguard-tools/build/CMakeFiles/edit_cache.dir
+/home/pi/wireguard-tools/build/CMakeFiles/ex_ecc.dir

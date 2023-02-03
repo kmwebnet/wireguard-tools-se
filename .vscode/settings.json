@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "pthread.h": "c"
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/src/plug-and-trust/ecc_example",
+    "C_Cpp.errorSquiggles": "disabled"
+}

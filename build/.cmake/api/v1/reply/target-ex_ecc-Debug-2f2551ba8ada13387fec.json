@@ -1,0 +1,417 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "ex_ecc"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"ADD_DEFINITIONS",
+			"TARGET_INCLUDE_DIRECTORIES"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 85,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 84,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 86,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 87,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 76,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "SMCOM_T1oI2C"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "SSS_USE_FTR_FILE"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "T1oI2C"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "T1oI2C_UM11225"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/.."
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/libCommon/infra"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/libCommon/log"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/libCommon/smCom"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/libCommon/smCom/T1oI2C"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/platform/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../hostlib/hostLib/se05x_03_xx_xx"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../sss/ex/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../sss/ex/src"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../sss/inc"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/pi/wireguard-tools/src/plug-and-trust/ecc_example/../sss/port/default"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		}
+	],
+	"id" : "ex_ecc::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "ex_ecc",
+	"nameOnDisk" : "ex_ecc",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/ex/ecc/ex_sss_ecc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/infra/global_platf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/infra/sm_apdu.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/infra/sm_connect.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/infra/sm_errors.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/infra/sm_printf.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/log/nxLog.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/smCom/T1oI2C/phNxpEsePal_i2c.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/smCom/T1oI2C/phNxpEseProto7816_3.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/smCom/T1oI2C/phNxpEse_Api.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/smCom/smCom.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/libCommon/smCom/smComT1oI2C.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/platform/generic/sm_timer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/platform/linux/i2c_a7.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/platform/rsp/se05x_reset.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/se05x/src/se05x_ECC_curves.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/se05x/src/se05x_mw.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/se05x/src/se05x_tlv.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/hostlib/hostLib/se05x_03_xx_xx/se05x_APDU.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/ex/src/ex_sss_boot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/ex/src/ex_sss_boot_connectstring.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/ex/src/ex_sss_se05x.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/ex/src/ex_sss_se05x_auth.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/fsl_sss_apis.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/fsl_sss_util_asn1_der.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/fsl_sss_util_rsa_sign_utils.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/se05x/fsl_sss_se05x_apis.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/se05x/fsl_sss_se05x_mw.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/home/pi/wireguard-tools/src/plug-and-trust/sss/src/se05x/fsl_sss_se05x_policy.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
