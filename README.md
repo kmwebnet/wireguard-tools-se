@@ -1,4 +1,4 @@
-# [wireguard-tools-se](https://git.zx2c4.com/wireguard-tools/about/) &mdash; tools for configuring [wireguard-se](https://www.wireguard.com/)
+# [wireguard-tools-se](https://git.zx2c4.com/wireguard-tools/about/) &mdash; tools for configuring [wireguard-se](https://github.com/kmwebnet/wireguard-se)
 
 This supplies the main userspace tooling for using and configuring WireGuard
 tunnels, including the
@@ -101,7 +101,7 @@ Public key generation needs also key symbol number that emits by wg genkey.
 
 The public key can use as same as normal version of wireguard on counterpart node.
 
-This wireguard-tools version requires secure element enabled version of [wireguard kernel module](https://).
+This wireguard-tools version requires secure element enabled version of [wireguard kernel module](https://github.com/kmwebnet/wireguard-se).
 
 ## License
 
