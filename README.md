@@ -105,4 +105,4 @@ This wireguard-tools version requires secure element enabled version of [wiregua
 
 ## License
 
-This project is released under the [GPLv2](COPYING).
+If a license is stated in the source code, that license is applied, otherwise the GPLv2 license is applied, see LICENSE.
