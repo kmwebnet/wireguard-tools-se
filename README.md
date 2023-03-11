@@ -31,7 +31,7 @@ Raspberry Pi OS Bullseye 5.15.84-v7+
 
 ## Prepare
 
-sudoa apt install libssl-dev
+sudo apt install libssl-dev
 
 git clone --recursive 
 Enable I2C on sudo raspi-config
