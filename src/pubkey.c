@@ -56,7 +56,7 @@ int pubkey_main(int argc, const char *argv[])
 	memcpy (&keyID, key, 4);
 
 	if (get_se_key(key, keyID)) {
-		perror("se-getkey");
+		perror("se-getpubkey");
 		return 1;
 	}
 #else

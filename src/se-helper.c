@@ -16,6 +16,10 @@
 
 #define PEXIT(msg) do{ perror(msg); exit(EXIT_FAILURE); }while(0)
 
+#define EX_SSS_AUTH_SE05X_NONE_AUTH_ID 0x00000000
+#define EX_LOCAL_OBJ_AUTH_ID EX_SSS_AUTH_SE05X_NONE_AUTH_ID
+
+
 int gen_se_key(uint32_t keyID)
 {
 
@@ -44,10 +48,31 @@ int gen_se_key(uint32_t keyID)
 
 	sss_status_t status = kStatus_SSS_Success;
 
+    const sss_policy_u ecc_key_pol = {.type = KPolicy_Asym_Key,
+        .auth_obj_id                        = 0,
+        .policy                             = {.asymmkey = {
+                       .can_Verify        = 1,
+                       .can_Encrypt       = 1,
+                       .can_Gen           = 1,
+                       .can_Import_Export = 1,
+                       .can_KA            = 1,
+                       .can_Attest        = 1,
+                   }}};
+    const sss_policy_u common      = {.type = KPolicy_Common,
+        .auth_obj_id                   = 0,
+        .policy                        = {.common = {
+                       .can_Delete = 1,
+                       .can_Read   = 1,
+                       .can_Write  = 0,
+                   }}};
+
+    sss_policy_t policy_for_ec_key = {.nPolicies = 2, .policies = {&ecc_key_pol, &common}};
+
+
     static ex_sss_boot_ctx_t pCtx;
     status = ex_sss_boot_open(&pCtx, I2C_DEFAULT_PORT);
     if (status != kStatus_SSS_Success) {
-        LOG_E("ex_sss_boot_open failed");
+        printf("ex_sss_boot_open failed");
         goto failure;
     };    
 
@@ -55,9 +80,31 @@ int gen_se_key(uint32_t keyID)
 	if (status != kStatus_SSS_Success)
 	{
  
-        LOG_E("ex_sss_key_store_and_object_init failed");
+        printf("ex_sss_key_store_and_object_init failed");
         goto failure;
     }    
+
+
+    sss_se05x_session_t *pSession = (sss_se05x_session_t *)&pCtx.session;
+
+    smStatus_t sw_status;
+    SE05x_Result_t result = kSE05x_Result_NA;
+
+    sw_status = Se05x_API_CheckObjectExists(
+        &pSession->s_ctx, keyID, &result);
+    if (SM_OK != sw_status) {
+        printf("Failed Se05x_API_CheckObjectExists");
+        goto failure;
+    }
+    if (result == kSE05x_Result_SUCCESS) {
+        sw_status = Se05x_API_DeleteSecureObject(&pSession->s_ctx, keyID);
+        if (SM_OK != sw_status) {
+            printf("Failed Se05x_API_DeleteSecureObject");
+            goto failure;
+        }
+    }
+
+
 
     sss_object_t keypair;
 
@@ -65,7 +112,7 @@ int gen_se_key(uint32_t keyID)
 	if (status != kStatus_SSS_Success)
 	{
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_context_init failed");
+        printf("sss_key_store_context_init failed");
         goto failure;
     }
 
@@ -74,7 +121,7 @@ int gen_se_key(uint32_t keyID)
 	{
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_allocate failed");
+        printf("sss_key_store_allocate failed");
         goto failure;
     }
 
@@ -83,7 +130,7 @@ int gen_se_key(uint32_t keyID)
 	{
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_object_init failed");
+        printf("sss_key_object_init failed");
         goto failure;
     }
 
@@ -100,17 +147,17 @@ int gen_se_key(uint32_t keyID)
         sss_key_object_free(&keypair);
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_object_allocate_handle failed");
+        printf("sss_key_object_allocate_handle failed");
         goto failure;
     }
 
-    status = sss_key_store_generate_key(&pCtx.ks, &keypair, 256, 0);
+    status = sss_key_store_generate_key(&pCtx.ks, &keypair, 256, &policy_for_ec_key);
 	if (status != kStatus_SSS_Success)
 	{
         sss_key_object_free(&keypair);
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_generate_key failed");
+        printf("sss_key_store_generate_key failed");
         goto failure;
     }
 
@@ -120,7 +167,7 @@ int gen_se_key(uint32_t keyID)
         sss_key_object_free(&keypair);
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_save failed");
+        printf("sss_key_store_save failed");
         goto failure;
     }	
     sss_key_object_free(&keypair);
@@ -175,7 +222,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
     static ex_sss_boot_ctx_t pCtx;
     status = ex_sss_boot_open(&pCtx, I2C_DEFAULT_PORT);
     if (status != kStatus_SSS_Success) {
-        LOG_E("ex_sss_boot_open failed");
+        printf("ex_sss_boot_open failed");
         goto failure;
     };    
 
@@ -183,7 +230,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
 	if (status != kStatus_SSS_Success)
 	{
  
-        LOG_E("ex_sss_key_store_and_object_init failed");
+        printf("ex_sss_key_store_and_object_init failed");
         goto failure;
     }    
 
@@ -195,7 +242,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
     sw_status = Se05x_API_CheckObjectExists(
         &pSession->s_ctx, keyID, &result);
     if (SM_OK != sw_status) {
-        LOG_E("Failed Se05x_API_CheckObjectExists");
+        printf("Failed Se05x_API_CheckObjectExists");
         goto failure;
     }
     if (result != kSE05x_Result_SUCCESS) {
@@ -209,7 +256,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
 	if (status != kStatus_SSS_Success)
 	{
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_context_init failed");
+        printf("sss_key_store_context_init failed");
         goto failure;
     }
 
@@ -218,7 +265,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
 	{
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_allocate failed");
+        printf("sss_key_store_allocate failed");
         goto failure;
     }
 
@@ -227,7 +274,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
 	{
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_object_init failed");
+        printf("sss_key_object_init failed");
         goto failure;
     }
 
@@ -240,7 +287,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
         sss_key_object_free(&keypair);
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_object_get_handle failed");
+        printf("sss_key_object_get_handle failed");
         goto failure;
     }
 
@@ -254,7 +301,7 @@ int get_se_key(uint8_t * key, uint32_t keyID)
         sss_key_object_free(&keypair);
         sss_key_store_context_free(&pCtx.ks);
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_key_store_get_key failed");
+        printf("sss_key_store_get_key failed:%x",status);
         goto failure;
     }	
 
@@ -313,7 +360,7 @@ int get_se_rand(uint8_t * random, size_t rand_len)
     static ex_sss_boot_ctx_t pCtx;
     status = ex_sss_boot_open(&pCtx, I2C_DEFAULT_PORT);
     if (status != kStatus_SSS_Success) {
-        LOG_E("ex_sss_boot_open failed");
+        printf("ex_sss_boot_open failed");
         goto failure;
     };    
 
@@ -323,7 +370,7 @@ int get_se_rand(uint8_t * random, size_t rand_len)
     if (status != kStatus_SSS_Success)
 	{
         ex_sss_session_close(&pCtx);
-        LOG_E("sss_rng_context_init failed");
+        printf("sss_rng_context_init failed");
         goto failure;
     }	
 
